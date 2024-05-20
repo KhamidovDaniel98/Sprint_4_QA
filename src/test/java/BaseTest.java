@@ -14,7 +14,6 @@ public class BaseTest {
     @Before
     public void startUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-        //WebDriverManager.chromedriver().setup();
         MainPageSamokat mainPage = new MainPageSamokat(driver);
         driver = new ChromeDriver();
         driver.get(URL);
