@@ -1,9 +1,8 @@
-//import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.After;
 import org.junit.Before;
-import page_object.MainPageSamokat;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static config.Config.URL;
 
@@ -13,15 +12,16 @@ public class BaseTest {
 
     @Before
     public void startUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-        MainPageSamokat mainPage = new MainPageSamokat(driver);
-        driver = new ChromeDriver();
-        driver.get(URL);
+        WebDriverManager.chromedriver().setup();
+    //  this.driver = new ChromeDriver(); //проверка в Chrome
+        driver = new FirefoxDriver();        //проверка в firefox
+        this.driver.get(URL);
 
     }
 
     @After
     public void tearDown() {
+
         driver.quit();
     }
 }
